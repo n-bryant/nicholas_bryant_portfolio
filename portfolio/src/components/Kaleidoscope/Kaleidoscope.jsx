@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Circle from './Circle';
 import Line from './Line';
+import KaleidoscopeCtrlr from './KaleidoscopeCtrlr';
 
 class InteractiveWeb extends Component {
   constructor() {
@@ -9,19 +10,28 @@ class InteractiveWeb extends Component {
     this.animatePoints = this.animatePoints.bind(this);
     this.checkOutOfBounds = this.checkOutOfBounds.bind(this);
     this.createPoints = this.createPoints.bind(this);
+    this.updatePlayState = this.updatePlayState.bind(this);
     this.updateSelectedPoint = this.updateSelectedPoint.bind(this);
     this.state = {
       width: window.innerWidth - 50,
       height: window.innerHeight - 50,
+      ctrlBtnShape: 'M 11 10 L 17 10 L 17 26 L 11 26 M 20 10 L 26 10 L 26 26 L 20 26',
+      isPlaying: true,
       lineFill: 'rgba(252, 252, 253, .5)',
-      selectedPoint: null,
-      points: {}
+      maxPointCount: 100,
+      minRad: 4,
+      maxRad: 8,
+      minVel: 1,
+      maxVel: 25,
+      points: {},
+      ptAnimateInterval: setInterval(this.animatePoints, 5000),
+      selectedPoint: null
     };
   }
 
   componentDidMount() {
     this.createPoints();
-    setInterval(this.animatePoints, 5000);
+    this.state.ptAnimateInterval;
   }
 
   animatePoints() {
@@ -53,7 +63,7 @@ class InteractiveWeb extends Component {
         // account for points going out of bounds
         points[currKey] = this.checkOutOfBounds(points[currKey], bounds);
       }
-      const randomSelection = `pt-${Math.floor(Math.random() * 100) + 1}`
+      const randomSelection = `pt-${Math.floor(Math.random() * this.state.maxPointCount) + 1}`;
       this.updateSelectedPoint(randomSelection);
 
       // reset closest points and state
@@ -63,17 +73,16 @@ class InteractiveWeb extends Component {
   }
 
   createPoints() {
-    const maxPointCount = 100;
-    const minRad = 4;
-    const maxRad = 8;
-    const minVel = 1;
-    const maxVel = 25;
+    const minRad = this.state.minRad;
+    const maxRad = this.state.maxRad;
+    const minVel = this.state.minVel;
+    const maxVel = this.state.maxVel;
     const height = this.state.height;
     const width = this.state.width;
     let points = {...this.state.points};
 
     // create maxPointCount points at random distances from each other
-    for (let i = 0; i < maxPointCount; i++) {
+    for (let i = 0; i < this.state.maxPointCount; i++) {
       let angle = Math.random() * Math.PI * 2;
       let radius = Math.floor(Math.random() * (maxRad - minRad) + minRad);
       let x, y;
@@ -160,6 +169,37 @@ class InteractiveWeb extends Component {
     };
   }
 
+  updatePlayState() {
+    let ctrlBtnShape = this.state.ctrlBtnShape;
+    let isPlaying = this.state.isPlaying;
+    let ptAnimateInterval = this.state.ptAnimateInterval;
+    const paths = document.querySelectorAll('.paths-group path');
+
+    if (ctrlBtnShape === 'M 11 10 L 17 10 L 17 26 L 11 26 M 20 10 L 26 10 L 26 26 L 20 26') {
+      ctrlBtnShape = 'M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28';
+    } else {
+      ctrlBtnShape = 'M 11 10 L 17 10 L 17 26 L 11 26 M 20 10 L 26 10 L 26 26 L 20 26';
+    }
+
+    if (isPlaying) {
+      clearInterval(this.state.ptAnimateInterval);
+      isPlaying = false;
+      paths.forEach((path) => {
+        path.classList.remove('animating');
+      });
+    } else {
+      isPlaying = true;
+      ptAnimateInterval = setInterval(this.animatePoints, 5000);
+      paths.forEach((path) => {
+        path.classList.add('animating');
+      });
+    }
+
+    this.setState({ctrlBtnShape});
+    this.setState({isPlaying});
+    this.setState({ptAnimateInterval});
+  }
+
   updateSelectedPoint(key) {
     let points = {...this.state.points};
     for (let i = 0; i < Object.keys(points).length; i++) {
@@ -182,7 +222,7 @@ class InteractiveWeb extends Component {
   render() {
     return (
       <svg ref={(canvas) => this.canvas = canvas} className="web-container" height={this.state.height} width={this.state.width}>
-        {Object.keys(this.state.points).map(point => <Circle key={point} index={point} data={this.state.points[point]} updateSelected={this.updateSelectedPoint} />)}
+        {Object.keys(this.state.points).map(point => <Circle key={point} index={point} data={this.state.points[point]} />)}
         <g className="paths-group">
           {Object.keys(this.state.points).map(point =>
             this.state.points[point].closest.map((closePt, index) => {
@@ -191,6 +231,7 @@ class InteractiveWeb extends Component {
             })
           )}
         </g>
+        <KaleidoscopeCtrlr shape={this.state.ctrlBtnShape} updatePlayState={this.updatePlayState} />
       </svg>
     );
   }

@@ -1,0 +1,18 @@
+.main-navigation {
+  margin: 1.5rem auto;
+  width: 75%;
+
+  .nav-list {
+    justify-content: space-around;
+
+    .nav-item {
+      font: 1.25rem helvetica;
+      cursor: pointer;
+      text-decoration: underline;
+
+      &:hover {
+        color: $lime;
+      }
+    }
+  }
+}

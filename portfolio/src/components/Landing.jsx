@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import InteractiveWeb from './InteractiveWeb';
+import Kaleidoscope from './Kaleidoscope/Kaleidoscope';
+import SelfInfo from './SelfInfo';
+import Navigation from './Navigation';
 // import base from '../base';
 
 class Landing extends Component {
@@ -10,7 +12,11 @@ class Landing extends Component {
   render() {
     return (
       <div className="landing-wrapper">
-        <InteractiveWeb />
+        <Kaleidoscope />
+        <div className="landing-content-container">
+          <SelfInfo className="landing" />
+          <Navigation />
+        </div>
       </div>
     );
   }
