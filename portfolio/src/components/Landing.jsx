@@ -5,10 +5,6 @@ import Navigation from './Navigation';
 // import base from '../base';
 
 class Landing extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <div className="landing-wrapper">

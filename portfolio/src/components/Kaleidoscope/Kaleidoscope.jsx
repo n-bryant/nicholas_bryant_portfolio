@@ -25,13 +25,13 @@ class InteractiveWeb extends Component {
       maxVel: 25,
       points: {},
       ptAnimateInterval: setInterval(this.animatePoints, 5000),
-      selectedPoint: null
+      selectedPoint: null,
+      sidePadding: 25
     };
   }
 
   componentDidMount() {
     this.createPoints();
-    this.state.ptAnimateInterval;
   }
 
   animatePoints() {
@@ -48,11 +48,13 @@ class InteractiveWeb extends Component {
       this.createPoints();
     } else {
       let points = {...this.state.points};
+      let minVel = this.state.minVel;
+      let maxVel = this.state.maxVel;
 
       for (let i = 0; i < Object.keys(points).length; i++) {
         let currKey = Object.keys(points)[i];
         // store values for point movement
-        points[currKey].vel = Math.floor(Math.random() * (25 + 25) - 25);
+        points[currKey].vel = Math.random() * (maxVel - minVel) + minVel;
         points[currKey].angle = Math.random() * Math.PI * 2;
         let move = this.getPointMovement(points[currKey].vel, points[currKey].angle);
 
@@ -79,6 +81,7 @@ class InteractiveWeb extends Component {
     const maxVel = this.state.maxVel;
     const height = this.state.height;
     const width = this.state.width;
+    const sidePadding = this.state.sidePadding;
     let points = {...this.state.points};
 
     // create maxPointCount points at random distances from each other
@@ -91,8 +94,8 @@ class InteractiveWeb extends Component {
         x = width/2;
         y = height/2;
       } else {
-        x = Math.random() * ((width - radius) - (25 + radius)) + (25 + radius);
-        y = Math.random() * ((height - radius) - (25 + radius)) + (25 + radius);
+        x = Math.random() * ((width - radius) - (sidePadding + radius)) + (sidePadding + radius);
+        y = Math.random() * ((height - radius) - (sidePadding + radius)) + (sidePadding + radius);
       }
 
       let pt = {

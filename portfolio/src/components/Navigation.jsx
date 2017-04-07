@@ -5,9 +5,9 @@ class Navigation extends Component {
     return (
       <nav className="main-navigation">
         <ul className="nav-list is-flex">
-          <li className="nav-item">About</li>
-          <li className="nav-item">Recent Projects</li>
-          <li className="nav-item">Contact</li>
+          <li className="nav-item is-centered">About</li>
+          <li className="nav-item is-centered">Recent Projects</li>
+          <li className="nav-item is-centered">Contact</li>
         </ul>
       </nav>
     );
