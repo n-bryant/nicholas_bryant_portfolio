@@ -1,21 +1,12 @@
 .about-wrapper {
-  // background: $lightGrey;
-  border: 4px solid $lime;
   margin: 2rem auto;
-  // overflow: scroll;
-  z-index: 1000;
 
-  h1 {
-    left: 50%;
-    position: absolute;
-    top: -2rem;
-    transform: translateX(-50%);
+  @include bp(small) {
+    border: 4px solid $lime;
   }
 }
 
 .about-content-container {
-  // background: $midnight;
-  // background-image: url('../images/web.png');
   padding: 1rem;
   .self-info-container {
     .self-name, .self-title {
@@ -29,8 +20,11 @@
 
   .main-navigation {
     .nav-item {
-      color: $lightGrey;
       padding: .5rem;
+      a {
+        color: $lightGrey;
+        padding: .5rem;
+      }
       &:first-of-type {
         background: $lime;
         border-radius: 2rem;
@@ -45,6 +39,7 @@
 
 .about-copy-container {
   background: $midnight;
+  border: 2px solid $lime;
   height: 250px;
   margin-top: 2rem;
   overflow: scroll;
@@ -54,7 +49,7 @@
     margin-top: 2rem;
     &:first-of-type {
       margin-top: 0;
-      text-indent: 3rem;
+      text-indent: 1.5rem;
     }
   }
 
@@ -66,26 +61,8 @@
       text-decoration: underline;
     }
   }
-}
 
-.about-skills-container {
-  background: $lightGrey;
-  color: $medGrey;
-  margin: 1rem;
-  padding: 2rem;
-  position: relative;
-
-  h2 {
-    cursor: pointer;
-    font-size: 2rem;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    transition: color .25s;
-
-    &:hover {
-      color: $lime;
-    }
+  @include bp(small) {
+    border: none;
   }
 }

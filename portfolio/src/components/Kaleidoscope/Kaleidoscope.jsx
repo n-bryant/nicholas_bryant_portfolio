@@ -55,7 +55,7 @@ class InteractiveWeb extends Component {
         let currKey = Object.keys(points)[i];
         // store values for point movement
         points[currKey].vel = Math.random() * (maxVel - minVel) + minVel;
-        points[currKey].angle = Math.random() * Math.PI * 2;
+        points[currKey].angle = Math.random() * 360;
         let move = this.getPointMovement(points[currKey].vel, points[currKey].angle);
 
         // move the point

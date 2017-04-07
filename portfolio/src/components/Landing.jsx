@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Kaleidoscope from './Kaleidoscope/Kaleidoscope';
 import SelfInfo from './SelfInfo';
 import Navigation from './Navigation';
-// import base from '../base';
 
 class Landing extends Component {
   render() {

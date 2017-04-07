@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import SelfInfo from '../SelfInfo';
 import Navigation from '../Navigation';
+import SkillList from './SkillList';
 
 class About extends Component {
   render() {
     return (
       <div className="about-wrapper">
-        <h1 className="self-name">&lt; Nicholas Bryant /&gt;</h1>
         <div className="about-content-container">
           <header>
-            <span></span>
             <Navigation />
           </header>
           <SelfInfo />
@@ -20,15 +19,7 @@ class About extends Component {
             <p className="about-copy-4">When I am not coding, I enjoy rock climbing, playing guitar, home brewing, and designing board games with my brother <a href="https://patrickbryantauthor.com/" target="_blank">@Patrick Bryant</a>.</p>
           </div>
         </div>
-        <div className="about-skills-container">
-          <h2 className="skills-btn is-centered">Skills</h2>
-          <ul className="skill-list is-flex">
-            <li className="skill-item">
-              <img />
-              <span></span>
-            </li>
-          </ul>
-        </div>
+        <SkillList />
       </div>
     );
   }

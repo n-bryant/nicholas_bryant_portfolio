@@ -4,24 +4,24 @@
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  // z-index: -1;
+  z-index: -1;
 
   circle {
     transition: all .75s;
   }
 
-  circle {
-    z-index: 1;
-  }
-
   path {
-    z-index: 0;
-
     &.animating {
       stroke-dasharray: 1000;
       stroke-dashoffset: 1000;
       animation: drawPath 5s linear infinite;
     }
+  }
+}
+
+.landing-wrapper {
+  .web-container {
+    z-index: auto;
   }
 }
 

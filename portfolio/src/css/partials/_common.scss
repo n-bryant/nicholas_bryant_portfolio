@@ -7,4 +7,10 @@ body {
   background: radial-gradient(#2D3646 35%, #1F2530);
   color: $lightGrey;
   font: 16px/1.6 helvetica;
+
+  a {
+    color: $lightGrey;
+    font: 16px/1.6 helvetica;
+    text-decoration: none;
+  }
 }
