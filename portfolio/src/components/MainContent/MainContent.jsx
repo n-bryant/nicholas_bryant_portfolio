@@ -23,7 +23,7 @@ class MainContent extends Component {
         <section className="main-content-wrapper">
           <Kaleidoscope />
           <div className="main-content-container">
-            <h1 className="self-name is-centered">&lt; Nicholas Bryant /&gt;</h1>
+            <h1 className="self-name is-centered"><a href="/">&lt; Nicholas Bryant /&gt;</a></h1>
             <RecentProjects />
           </div>
         </section>
@@ -33,7 +33,7 @@ class MainContent extends Component {
         <section className="main-content-wrapper">
           <Kaleidoscope />
           <div className="main-content-container">
-            <h1 className="self-name is-centered">&lt; Nicholas Bryant /&gt;</h1>
+            <h1 className="self-name is-centered"><a href="/">&lt; Nicholas Bryant /&gt;</a></h1>
             <Contact />
           </div>
         </section>
