@@ -1,5 +1,6 @@
 .recent-projects-wrapper {
   @extend .about-wrapper;
+  animation: fadeInRight 1s ease;
 }
 
 .projects-content-container {

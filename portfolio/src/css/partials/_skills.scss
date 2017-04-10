@@ -2,6 +2,7 @@
   background: $lightGrey;
   color: $medGrey;
   margin: 1rem;
+  overflow: scroll;
   padding: 2rem;
   position: relative;
 
@@ -57,14 +58,4 @@
     overflow: hidden;
     width: 200px;
   }
-}
-
-.about-skills-container .skills-hidden {
-  transform: translateY(0);
-  transition: all 1s;
-}
-
-.about-skills-container .skills-shown {
-  transform: translateY(-50%);
-  transition: all 1s;
 }

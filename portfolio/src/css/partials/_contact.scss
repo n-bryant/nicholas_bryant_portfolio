@@ -1,0 +1,70 @@
+.contact-wrapper {
+  @extend .about-wrapper;
+  animation: fadeInRight 1s ease;
+
+  .main-navigation {
+    .nav-item {
+      padding: .5rem;
+      a {
+        color: $lightGrey;
+        padding: .5rem;
+      }
+      &:last-of-type {
+        background: $lime;
+        border-radius: 2rem;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.contact-content-container {
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+
+  li {
+    height: 200px;
+    width: 200px;
+
+    svg {
+      fill: $lime;
+      transition: all .5s ease;
+    }
+
+    &:hover {
+      svg {
+        fill: $lightGrey;
+        transition: all .5s ease;
+      }
+    }
+  }
+}
+
+.resume-link {
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+
+  a {
+    align-items: center;
+    color: $lime;
+    display: flex;
+    border-radius: 50%;
+    font-size: 2rem;
+    height: 100%;
+    justify-content: center;
+    transition: all .5s ease;
+    width: 100%;
+
+    &:hover {
+      color: $lightGrey;
+      transition: all .5s ease;
+    }
+  }
+}

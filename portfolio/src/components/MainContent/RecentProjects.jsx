@@ -19,7 +19,7 @@ class RecentProjects extends Component {
           img: './project_imgs/openscores.png',
           url: 'https://github.com/n-bryant/openScores_musicCollabTool',
           description: ['As my final project for The Iron Yard, I helped to build OpenScores.  OpenScores is a web collaboration tool for composers built in ReactJS allowing multiple users to simultaneously draft music notation in real time.',
-            'My contributions included designing the look of the application, integrating a JavaScript library called VexFlow to render and manipulate musical notation as SVGs, setting up a back-end with Google Firebase, and configuring another JS library called Socket.io to transmit document changes to multiple clients in real time.']
+            'We only had two weeks to complete the project, so we made use of an Agile project management strategy to stay on track.  My contributions included designing the look of the application, integrating a JavaScript library called VexFlow to render and manipulate musical notation as SVGs, setting up a back-end with Google Firebase, and configuring another JS library called Socket.io to transmit document changes to multiple clients in real time.']
         },
         memory: {
           name: 'Memory in Motion',
