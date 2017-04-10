@@ -1,0 +1,61 @@
+.about-skills-container {
+  background: $lightGrey;
+  color: $medGrey;
+  margin: 1rem;
+  overflow: scroll;
+  padding: 2rem;
+  position: relative;
+
+  .skills-btn, .skills-title {
+    font-size: 2rem;
+  }
+  .skills-btn {
+    cursor: pointer;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: color .25s;
+    width: 100%;
+
+    &:hover {
+      color: $lime;
+    }
+  }
+
+  .collapse-skills-btn {
+    background: $lightGrey;
+    cursor: pointer;
+    width: 100%;
+
+    .arrow-container {
+      margin: 0 auto;
+      width: 50px;
+
+      svg {
+        fill: $medGrey;
+
+        &:hover {
+          fill: $lime;
+          transition: fill .5s;
+        }
+      }
+    }
+  }
+}
+
+.skill-list {
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem auto;
+
+  .skill-item {
+    align-items: center;
+    margin: 1rem 2rem;
+    flex-direction: column;
+    height: 300px;
+    justify-content: center;
+    overflow: hidden;
+    width: 200px;
+  }
+}

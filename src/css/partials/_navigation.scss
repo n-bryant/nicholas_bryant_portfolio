@@ -1,0 +1,23 @@
+.main-navigation {
+  margin: 2rem auto;
+  max-width: 400px;
+  width: 100%;
+
+  .nav-list {
+    justify-content: space-around;
+
+    .nav-item {
+      a {
+        font: 1.25rem helvetica;
+        color: $lime;
+        cursor: pointer;
+
+        &:hover {
+          color: $lightGrey;
+          text-decoration: underline;
+          transition: all .25s;
+        }
+      }
+    }
+  }
+}
