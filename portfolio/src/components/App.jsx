@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Landing from './Landing';
-// import base from '../base';
 
 class App extends Component {
   constructor() {

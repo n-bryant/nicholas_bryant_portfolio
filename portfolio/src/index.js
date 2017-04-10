@@ -7,9 +7,11 @@ import Landing from './components/Landing';
 import MainContent from './components/MainContent/MainContent';
 import NotFound from './components/NotFound';
 
+const repo = `/${window.location.pathname.split('/')[1]}`;
+
 const Root = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={repo}>
       <div>
         <Match exactly pattern="/" component={Landing} />
         <Match exactly pattern="/about" component={MainContent} />
